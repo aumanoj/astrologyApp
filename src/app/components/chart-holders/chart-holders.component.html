@@ -1,0 +1,118 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+            <h1>
+                Chart Holders List
+            </h1>
+        </div>
+        <div class="col-xs-12 col-sm-6 widget-container-col ui-sortable">
+            <a routerLink="/ChartHoldersDetails" class="width-15 pull-right btn btn-sm btn-success">
+                <i class="ace-icon fa fa-plus"></i>
+                <span class="bigger-110">Create New</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <table id="simple-table" class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Child Name</th>
+                                <th>Father Name</th>
+                                <th>Gender</th>
+                                <th>Birth Place</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Country</th>
+                                <th>
+                                    <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                                    DOB
+                                </th>
+                                <th>BT Rectified</th>
+                                <!-- <th>House System</th> -->
+                            </tr>
+                        </thead>
+                        <tbody id="tblListBody">
+                            <tr *ngFor="let chartHolder of chartHolders">
+                                <td>{{chartHolder.wrChildName}}</td>
+                                <td>{{chartHolder.wrFatherName}}</td>
+                                <td>{{chartHolder.wrGender}}</td>
+                                <td>{{chartHolder.wrBirhPlace}}</td>
+                                <td>{{chartHolder.wrCity}}</td>
+                                <td>{{chartHolder.wrState}}</td>
+                                <td>{{chartHolder.wrCountry}} {{chartHolder.wrPostalCode}}</td>
+                                <td>{{chartHolder.wrDOB}}</td>
+                                <td>{{chartHolder.wrBirthTimeRectified}}</td>
+                                <td>
+                                    <div class="hidden-sm hidden-xs btn-group">
+                                        <a class="btn btn-xs btn-success tooltip-success"
+                                            id="btnupdate" onmouseover="showToolTip(this)"
+                                            data-placement="top" data-original-title="Update"
+                                            >
+                                            <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                        </a>
+
+                                        <a class="btn btn-xs btn-danger tooltip-danger"
+                                            id="btndelete" onmouseover="showToolTip(this)"
+                                            data-placement="top" data-original-title="Delete">
+                                            <i class="ace-icon fa fa-trash-o bigger-120" (click)="deleteChartHolder(chartHolder.wrChartHolderID)"></i>
+                                            
+                                        </a>
+
+                                        <button class="btn btn-xs btn-info tooltip-info" id="btnview"
+                                            onmouseover="showToolTip(this)" data-placement="top"
+                                            data-original-title="View">
+                                            <i class="ace-icon fa fa-search bigger-120"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.span -->
+                <div class="col-xs-12 col-sm-6 btn-addnew hide">
+                    <a routerLink="/ChartHoldersDetails" class="width-15 btn btn-sm btn-success">
+                        <i class="ace-icon fa fa-plus"></i>
+                        <span class="bigger-110">Create New</span>
+                    </a>
+                </div>
+            </div><!-- /.row -->
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+<!-- <script type="text/x-jquery-tmpl" id="tmpltblList">
+    <tr>
+        <td>${wrChildName}</td>
+        <td>${wrFatherName}</td>
+        <td>${wrGender}</td>
+        <td>${wrBirhPlace}</td>
+        <td>${wrCity}</td>
+        <td>${wrState}</td>
+        <td>${wrCountry}[${wrPostalCode}]</td>
+        <td>${wrDOB}</td>
+        <td>${wrBirthTimeRectified}</td>
+        @*<td>${wrHouseSystem}</td>*@
+        <td>
+            <div class="hidden-sm hidden-xs btn-group">
+                <a class="btn btn-xs btn-success tooltip-success" id="btnupdate-${wrChartHolderID}" onmouseover="showToolTip(this)" data-placement="top" data-original-title="Update" href="ChartHolder/ChartHolderDetail?id=${wrChartHolderID}">
+                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                </a>
+
+                <a class="btn btn-xs btn-danger tooltip-danger" id="btndelete-${wrChartHolderID}" onmouseover="showToolTip(this)" data-placement="top" data-original-title="Delete"  onclick="deleteRecord('${wrChartHolderID}')">
+                        <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                    </a>
+
+                <button class="btn btn-xs btn-info tooltip-info" id="btnview-${wrChartHolderID}" onmouseover="showToolTip(this)" data-placement="top" data-original-title="View" onclick="viewChart('${wrChartHolderID}')">
+                    <i class="ace-icon fa fa-search bigger-120"></i>
+                </button>
+            </div>
+        </td>
+    </tr>
+
+</script> -->

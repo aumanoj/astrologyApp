@@ -1,0 +1,491 @@
+<!-- <script>
+    $(document).ready(function () {
+        document.title = 'Chart Holder';
+        document.getElementById('txtCurrentDateTime').value = (new Date().toLocaleString([], { hour12: true }));
+    });
+</script> -->
+
+<div class="page-header">
+    <h1>
+        Chart Holder Details
+    </h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="form-horizontal center-block" id="frmChartHolderDetail">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-6 pl-2 pr-2">
+                    <div class="widget-box">
+                        <div class="widget-header">
+                            <h4 class="widget-title">Personal Information</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                        >Contact</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="txtContact" placeholder="Contact"
+                                            [(ngModel)]="chartHolders.WrContactPhoneNumber" />
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="txtChartType">Chart Type</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="txtChartType" placeholder="Regular Birth Chart" />
+                            </div>
+                        </div> -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Child Name</label>
+                                    <div class="col-sm-9">
+                                        <input [(ngModel)]="chartHolders.WrChildName" class="form-control" id="txtChildName"
+                                            placeholder="Ex. Smith" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                        >Father
+                                        Name</label>
+                                    <div class="col-sm-9">
+                                        <input [(ngModel)]="chartHolders.WrFatherName" class="form-control" id="txtFatherName"
+                                            placeholder="Ex. michele" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                        >Mother
+                                        Name</label>
+                                    <div class="col-sm-9">
+                                        <input [(ngModel)]="chartHolders.WrMotherName" class="form-control" id="txtMotherName"
+                                            placeholder="Ex. Michelle" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-group">
+                                        <label class="col-sm-3 control-label no-padding-right">Gender</label>
+                                        <div class="radio col-sm-3">
+                                            <label>
+                                                <input name="rdoGender" type="radio" class="ace" id="rdMale"
+                                                    value="male" [(ngModel)]="gender" />
+                                                <span class="lbl"> Male</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="radio col-sm-6">
+                                            <label>
+                                                <input name="rdoGender" type="radio" class="ace" id="rdFemale"
+                                                    value="female" [(ngModel)]="gender" />
+                                                <span class="lbl"> Female</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Birth
+                                        Date</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <input id="txtBirthDate" type="text" class="form-control datetimepicker"
+                                                [(ngModel)]="chartHolders.WrDOB" />
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-clock-o bigger-110"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-group">
+                                        <label class="col-sm-3 control-label no-padding-right">Aynamsa Policy</label>
+
+                                        <div class="radio col-sm-3">
+                                            <label>
+                                                <input name="rdoAynamsa" class="rdoAynamsa" type="radio" class="ace"
+                                                    id="rdNirayana" value="Nirayana"
+                                                    [(ngModel)]="chartHolders.WrAynamsaPolicy" />
+                                                <span class="lbl"> Nirayana</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="radio col-sm-6">
+                                            <label>
+                                                <input name="rdoAynamsa" class="rdoAynamsa" type="radio" class="ace"
+                                                    id="rdSayana" value="Sayana"
+                                                    [(ngModel)]="chartHolders.WrAynamsaPolicy" />
+                                                <span class="lbl"> Sayana</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                        >Aynamsa</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="ddlAynamsa"
+                                            [(ngModel)]="chartHolders.WrAyanamsa" data-placeholder="Choose a Aynamsa">
+                                            <option value="0">--Select Aynamsa--</option>
+                                            <!-- <option value="0">NA</option> -->
+                                            <option value="5">lahiri</option>
+                                            <option value="999">Raman</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group" sstyle="padding-bottom:25px;">
+                                    <label class="col-sm-3 control-label no-padding-right">House
+                                        System</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="ddlHouseSys"
+                                            [(ngModel)]="chartHolders.WrHouseSystem"
+                                            data-placeholder="Choose a House sys">
+                                            <option value="0">--House System--</option>
+                                            <option value="P">P</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 pl-2 pr-2">
+                    <div class="widget-box">
+                        <div class="widget-header">
+                            <h4 class="widget-title">Location Information</h4>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="txtEmail"
+                                            [(ngModel)]="chartHolders.WrEmail"
+                                            placeholder="youremailaddress@mail.com" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Birth
+                                        Place</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="txtBirthPlace"
+                                            [(ngModel)]="chartHolders.WrBirhPlace" placeholder="Birth Address" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">City</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="txtCity"
+                                            [(ngModel)]="chartHolders.WrCity" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">State</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="txtState"
+                                            [(ngModel)]="chartHolders.WrState" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                        >Country</label>
+                                    <div class="col-sm-9">
+                                        <select class="chosen-select form-control" id="ddlCountry" #selected
+                                            [(ngModel)]="chartHolders.WrCountry" data-placeholder="Choose a Country" (change)="dropdownCountrySelected(selected.value)">
+                                            <option value="0">--Select Country--</option>
+                                            <option *ngFor="let country of countries" [value]="country.CountryName">{{country.CountryName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Postal
+                                        Code</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="txtPostalCode"
+                                            [(ngModel)]="chartHolders.WrPostalCode" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">Time
+                                        Zone</label>
+                                    <div class="col-sm-9">
+                                        <select class="chosen-select form-control" id="ddlTimeZone"
+                                            [(ngModel)]="chartHolders.WrTimeZone" data-placeholder="Choose a Time zone">
+                                            <option value="0">--Select the UTC value--</option>
+                                            <option *ngFor="let timezone of timezones" [value]="timezone.TimeZoneValue">{{timezone.ActualTimeZone}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                        >Latitude</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="txtLatitude"
+                                            [(ngModel)]="chartHolders.WrLatitude" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="txtLatLocator" disabled />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="txtDMSLat" disabled />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right"
+                                        >Longitude</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" id="txtLongitude"
+                                            [(ngModel)]="chartHolders.WrLongitude" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="txtLngLocator" disabled />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="txtDMSLong" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="showMapModal" class="modal" role="dialog" data-backdrop="false">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Map View</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div id="map-canvas"
+                                        style="visibility:hidden;width:100%!important;min-height:500px!important;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="CustAddressModal" class="modal" role="dialog" data-backdrop="false">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Customer Current Address</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-xs-12">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="txtAddress">Address</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txtAddress"
+                                                    placeholder="Current Address" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="txtCCity">City</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txtCCity" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="txtCState">State</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txtCState" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="ddlCCountry">Country</label>
+                                            <div class="col-sm-9">
+                                                <select class="chosen-select form-control" id="ddlCCountry"
+                                                    data-placeholder="Choose a Country">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="txtCPostalCode">Postal Code</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txtCPostalCode" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="ddlCTimeZone">Time Zone</label>
+                                            <div class="col-sm-9">
+                                                <select class="chosen-select form-control" id="ddlCTimeZone"
+                                                    data-placeholder="Choose a Time zone">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="txtLatitude">Latitude</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtCLatitude" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="txtCLatLocator" disabled />
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="txtCDMSLat" disabled />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="txtLongitude">Longitude</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" id="txtCLongitude" />
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" id="txtCLngLocator" disabled />
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" id="txtCDMSLong" disabled />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label no-padding-right"
+                                                for="txtCPhoneNumber">Phone Number</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="txtCPhoneNumber" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" id="btnSaveCurrentAddress">Save</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 mb-2 mt-2">
+                    <!-- <div class="widget-box"> -->
+                    <div class="center">
+                        <a class="btn btn-warning" id="btnViewChart">
+                            <i class="ace-icon fa fa-area-chart"></i>
+                            View Chart
+                        </a>
+                        <button class="btn btn-success" (click)="addNewChartHolder()">
+                            <i class="ace-icon fa fa-save"></i>
+                            Confirm & Save
+                        </button>
+                        <a class="btn  btn-info2" id="btnViewMap">
+                            <i class="ace-icon fa fa-map-marker"></i>
+                            Show Map
+                        </a>
+                        <a class="btn  btn-inverse" href="/client/chartholder">
+                            <i class="ace-icon fa fa-arrow-left"></i>
+                            Back
+                        </a>
+                    </div>
+                    <!-- </div> -->
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 pl-2 pr-2">
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4 class="widget-title">Select Custom Address And Date - Time </h4>
+                    </div>
+
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="form-group form-group col-sm-12 mb-10">
+                                <label class="col-sm-3 control-label  align-right mt-5">Current
+                                    Date Time :</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="txtCurrentDateTime" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <a class="btn btn-sm btn-success" id="btnCreateAddress">
+                                        <i class="ace-icon fa fa-plus-circle"></i>
+                                        Create New
+                                    </a>
+                                </div>
+                            </div>
+                            <table id="simple-table" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Address</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                        <th>Country</th>
+                                        <th>PostalCode</th>
+                                        <th>Phone Number</th>
+                                        <th>Edit</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tblListBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- <script type="text/x-jquery-tmpl" id="tmpltblList">
+    <tr>
+        <td class="center">
+            <label class="pos-rel">
+                <input type="checkbox" class="ace" />
+                <span class="lbl"></span>
+            </label>
+        </td>
+        <td>${wrAddress}</td>
+        <td>${wrCity}</td>
+        <td>${wrState}</td>
+        <td>${wrCountry}</td>
+        <td>${wrPostalCode}</td>
+        <td>${wrPhoneNumber}</td>
+        <td>
+            <div class="hidden-sm hidden-xs btn-group">
+                <a class="btn btn-xs btn-success tooltip-success" id="btnupdate-${wrCurrentAddressID}" onmouseover="showToolTip(this)" data-placement="top" data-original-title="Update" onclick="getCurrentAddressValue('${wrCurrentAddressID}');">
+                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                </a>
+            </div>
+        </td>
+    </tr>
+
+</script> -->
+
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFu1GOWyVu9Wc4GGP34PFjJpeo-a1PjDM"></script> -->
